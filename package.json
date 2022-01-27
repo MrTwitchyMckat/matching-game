@@ -1,0 +1,21 @@
+{
+    "name": "terkaeet-frontend-engineering-test",
+    "version": "1.0.0",
+    "description": "Terakeet Frontend Engineering Test",
+    "scripts": {
+    "start": "parcel serve src/views/index.html --open",
+    "build": "parcel build src/views/index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Terakeet Applicant",
+    "license": "ISC",
+    "private": true,
+    "dependencies": {
+        "parcel": "2.0.0-beta.2"
+    },
+        "devDependencies": {
+        "@babel/cli": "^7.14.3",
+        "@babel/core": "^7.14.3",
+        "@babel/preset-env": "^7.14.2"
+    }
+}
