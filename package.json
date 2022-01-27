@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "Terakeet Frontend Engineering Test",
     "scripts": {
-        "start": "parcel serve src/views/index.html --open",
+        "serve": "parcel serve src/views/index.html --open",
         "build": "parcel build src/views/index.html",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
