@@ -5,7 +5,9 @@ Welcome! Make sure you read all the instructions carefully before you begin the 
 
 The objective of this exercise is to create a Matching Game that highlights your skills in modern frontend web development.
 
-## Matching Game - User Story
+## Matching Game
+
+### User Story
 
 - A user is presented with many pairs of randomized hidden values.
 - A user will be able to reveal 2 of the hidden values.
@@ -13,7 +15,7 @@ The objective of this exercise is to create a Matching Game that highlights your
 - A user will be able to repeat the process of revealing 2 hidden values until all pairs of values are visible. At this point, the game is over and the user has won.
 - A user should be able to see how many attempts have been made to match values.
 
-## Setup
+### Setup
 
 We’ve created the following scaffolding to get a basic project up-and-running with minimal effort.
   
@@ -23,7 +25,7 @@ We’ve created the following scaffolding to get a basic project up-and-running 
 
 > **Note** - You are free to deviate from the initial setup and use your preferred project setup, bundler (e.g. Webpack, Rollup), and dependencies. The only requirement is that running `npm install` from the command line runs all the necessary installation for your project and `npm run serve` starts a local server where your project can be viewed in a browser at `localhost`.
 
-## Requirements
+### Requirements
 
 - Utilize modern JavaScript and JavaScript frameworks. Vue is highly encouraged but other frameworks may also be used, e.g. React, Angular, etc.
 - Do not use CSS frameworks (e.g. Bootstrap, Foundation). You are encouraged to use pre-processors like SASS or SCSS.
@@ -74,4 +76,4 @@ That’s OK, sometimes things happen. Complete the exercise to the best of your 
 
 1. Make sure you fill out the `candidate.md` file with any additional information you’d like us to know.
 
-2. Email a zip file (excluding node_modules) with your work or a link to your GitHub repository to your point-of-contact for the hiring process.
+2. Email a zip file (excluding `node_modules`) with your work or a link to your GitHub repository to your point-of-contact for the hiring process.
