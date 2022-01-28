@@ -23,7 +23,9 @@ We’ve created the following scaffolding to get a basic project up-and-running 
 - Install [node.js](https://nodejs.org/en/) and then run npm install in your project directory.
 - Once finished, run npm run serve to start a local server. Once it's running, a window will open in your default browser with a local URL to access the local server.
 
-> **Note** - You are free to deviate from the initial setup as much as you'd like. You can use your preferred project setup, bundler (e.g. Webpack, Rollup), and dependencies. The only requirement is that running `npm install` from the command line runs all the necessary installation for your project and `npm run serve` starts a local server where your project can be viewed in a browser at `localhost`.
+> **Note** - You are free to deviate from the initial setup as much as you'd like. You can use your preferred project setup (e.g. Vue, React), bundler (e.g. Webpack, Rollup), and dependencies.
+>
+> The only requirement is that running `npm install` from the command line runs all the necessary installation for your project and `npm run serve` starts a local server where your project can be viewed in a browser at `localhost`.
 
 ### Requirements
 
