@@ -21,9 +21,9 @@ We’ve created the following scaffolding to get a basic project up-and-running 
   
 - Clone or download this repo (please do not fork it).
 - Install [node.js](https://nodejs.org/en/) and then run npm install in your project directory.
-- Once finished, run npm run serve to start a local server through Parcel. Once it's running, a window will open in your default browser with a local URL to access the local server.
+- Once finished, run npm run serve to start a local server. Once it's running, a window will open in your default browser with a local URL to access the local server.
 
-> **Note** - You are free to deviate from the initial setup and use your preferred project setup, bundler (e.g. Webpack, Rollup), and dependencies. The only requirement is that running `npm install` from the command line runs all the necessary installation for your project and `npm run serve` starts a local server where your project can be viewed in a browser at `localhost`.
+> **Note** - You are free to deviate from the initial setup as much as you'd like. You can use your preferred project setup, bundler (e.g. Webpack, Rollup), and dependencies. The only requirement is that running `npm install` from the command line runs all the necessary installation for your project and `npm run serve` starts a local server where your project can be viewed in a browser at `localhost`.
 
 ### Requirements
 
@@ -32,7 +32,7 @@ We’ve created the following scaffolding to get a basic project up-and-running 
 - The initial list of non-randomized values to seed your game can be retrieved from this [endpoint](https://raw.githubusercontent.com/terakeet/candidate-assignment-software-frontend/main/src/data/data.json) in JSON format. You should use the api to retrieve the data.
 - The initial state of your project’s design should closely match the mockup (Note: 1 value has been revealed). The design of interactions and additional states are up to you.
 
-> **Note** - If you have any issue retrieving the data from the endpoint, we've included the JSON data locally in `/src/data/data.json`. If you end up using this instead of the API, please explain why in the candidate.md file.
+> **Note** - If you have any issue retrieving the data from the endpoint, we've included the JSON data locally in `/src/data/data.json`. If you end up using this instead of the API, please explain why in the `candidate.md` file.
 
 ### Mockup
 
@@ -70,7 +70,7 @@ Your initial project should look similar to the mockup but It does not have to b
 
 ### What should I do if I get stuck or run out of time?
 
-That’s OK, sometimes things happen. Complete the exercise to the best of your ability. Feel free to mention any issues or things you’d like the reviews to know in the `candidate.md` file.
+That’s OK, sometimes things happen. Complete the exercise to the best of your ability. Feel free to mention any issues or things you’d like the reviewers to know in the `candidate.md` file.
 
 ## How to Submit
 
