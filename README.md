@@ -27,10 +27,14 @@ We’ve created the following scaffolding to get a basic project up-and-running 
 
 - Utilize modern JavaScript and JavaScript frameworks. Vue is highly encouraged but other frameworks may also be used, e.g. React, Angular, etc.
 - Do not use CSS frameworks (e.g. Bootstrap, Foundation). You are encouraged to use pre-processors like SASS or SCSS.
-- The initial list of non-randomized values to seed your game can be retrieved from this endpoint in JSON format. You should use the api to retrieve the data.
+- The initial list of non-randomized values to seed your game can be retrieved from this [endpoint](https://raw.githubusercontent.com/terakeet/candidate-assignment-software-frontend/main/src/data/data.json) in JSON format. You should use the api to retrieve the data.
 - The initial state of your project’s design should closely match the mockup (Note: 1 value has been revealed). The design of interactions and additional states are up to you.
 
 > **Note** - If you have any issue retrieving the data from the endpoint, we've included the JSON data locally in `/src/data/data.json`. If you end up using this instead of the API, please explain why in the candidate.md file.
+
+### Mockup
+
+![Mock up of Matching Game](/mockups/matching-game.png?raw=true "Mock Up")
 
 ### Bonus Tasks
 
