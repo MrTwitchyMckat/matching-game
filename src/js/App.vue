@@ -11,11 +11,8 @@ export default {
   data() {
     return {
       values: [],
-      flippedCards: 0,
       attempts: 0,
       best: 0,
-      currentValue: {},
-      PreviousValue: {},
       activeCards: [],
       correctCards: [],
       win: false,
@@ -27,63 +24,45 @@ export default {
   },
   methods: {
     async setValues() {
-      const url = 'https://raw.githubusercontent.com/terakeet/candidate-assignment-software-frontend/main/src/data/data.json'; 
-      this.values = await generateValues(getNumbers(url));
+      const numbers = await getNumbers();
+      this.values = generateValues(numbers);
     },
-    handleFlip(values) {
-      if (!this.correctCards.includes(values.index) &&
-          !this.activeCards.includes(values.index)) {
-        this.flippedCards++;
-        if (this.flippedCards == 2) {
-          this.flippedCards = 0;
+    handleFlip(cardValues) {
+      if (!this.correctCards.includes(cardValues.index) &&
+          !this.activeCards.includes(cardValues.index) &&
+          this.activeCards.length < 2) {
+          this.activeCards.push(cardValues.index);
+        if (this.activeCards.length === 2) {
           this.attempts++;
-          this.previousValue = this.currentValue;
-          this.currentValue = values;
-          this.activeCards.push(this.currentValue.index);
-          this.disabled = true;
           setTimeout(this.checkValues, 1000);
-        } else {
-          this.currentValue = values;
-          this.activeCards.push(this.currentValue.index);
         }
       }
     },
     checkValues() {
-      if (this.currentValue.number == this.previousValue.number) {
-        this.correctCards.push(this.currentValue.index, this.previousValue.index);
+      if (this.values[this.activeCards[0]] == this.values[this.activeCards[1]]) {
+        this.correctCards.push(this.activeCards[0], this.activeCards[1]);
         this.activeCards = [];
-        this.currentValue = {};
-        this.previousValue = {};
         this.checkWin();
-      } else {
-        this.activeCards = [];
-        this.currentValue = {};
-        this.previousValue = {};
       }
-      this.disabled = false;
+      this.activeCards = [];
     },
     getClasses(index) {
+      let classes = ['card'];
       if (this.activeCards.includes(index)) {
-        return `card active ${this.disableClick()}`;
-      } else if (this.correctCards.includes(index)) {
-        return `card correct ${this.disableClick()}`;
-      } else {
-        return `card ${this.disableClick()}`;
+        classes.push('active');
       }
-    },
-    disableClick() {
-      if (this.disabled) {
-        return 'disabled';
+      if (this.correctCards.includes(index)) {
+        classes.push('correct');
       }
-      return '';
+      return classes.join(' ');
     },
     checkWin() {
       if (this.values.length == this.correctCards.length) {
-        const bestAttempt = localStorage.getItem('bestAttempt');
-        if (bestAttempt != null && bestAttempt > this.attempts) {
+        const bestAttempt = localStorage.getItem('bestAttempt') ?? 0;
+        if (bestAttempt === 0) {
           localStorage.setItem('bestAttempt', this.attempts);
         }
-        if (bestAttempt == null) {
+        if (bestAttempt > this.attempts) {
           localStorage.setItem('bestAttempt', this.attempts);
         }
         this.best = localStorage.getItem('bestAttempt');
@@ -92,10 +71,7 @@ export default {
     },
     reset() {
       this.setValues();
-      this.flippedCards = 0;
       this.attempts = 0;
-      this.currentValue = {};
-      this.previousValue = {};
       this.activeCards = [];
       this.correctCards = [];
       this.win = false;
@@ -120,7 +96,8 @@ export default {
     </div>
     <div v-if="!win" class="cards">
       <card v-for="(value, index) in values"
-        @flipped="handleFlip" :key="index"
+        @flipped="handleFlip"
+        :key="index"
         :values="{number: value, index: index}"
         :classes="getClasses(index)"
       ></card>

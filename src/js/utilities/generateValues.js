@@ -1,9 +1,8 @@
-async function generateValues(numbers) {
-  const numbersArr = await numbers;
+function generateValues(numbers) {
   let values = [];
-  if (numbersArr.length) {
+  if (numbers.length) {
     // Double up values of numbers to get 12 total values
-    numbersArr.forEach(number => {
+    numbers.forEach(number => {
       values.push(number, number);
     });
 
