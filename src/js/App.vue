@@ -18,7 +18,8 @@ export default {
       PreviousValue: {},
       activeCards: [],
       correctCards: [],
-      win: false
+      win: false,
+      disabled: false,
     }
   },
   components: {
@@ -39,10 +40,11 @@ export default {
           this.previousValue = this.currentValue;
           this.currentValue = values;
           this.activeCards.push(this.currentValue.index);
+          this.disabled = true;
           setTimeout(this.checkValues, 1000);
         } else {
           this.currentValue = values;
-          this.activeCards.push(values.index);
+          this.activeCards.push(this.currentValue.index);
         }
       }
     },
@@ -58,15 +60,22 @@ export default {
         this.currentValue = {};
         this.previousValue = {};
       }
+      this.disabled = false;
     },
     getClasses(index) {
       if (this.activeCards.includes(index)) {
-        return 'card active';
+        return `card active ${this.disableClick()}`;
       } else if (this.correctCards.includes(index)) {
-        return 'card correct';
+        return `card correct ${this.disableClick()}`;
       } else {
-        return 'card';
+        return `card ${this.disableClick()}`;
       }
+    },
+    disableClick() {
+      if (this.disabled) {
+        return 'disabled';
+      }
+      return '';
     },
     checkWin() {
       if (this.values.length == this.correctCards.length) {
