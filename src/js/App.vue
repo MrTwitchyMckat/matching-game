@@ -103,10 +103,8 @@ export default {
   },
   beforeMount() {
     this.setValues();
-  },
-  mounted() {
     this.best = localStorage.getItem('bestAttempt');
-  }
+  },
 }
 </script>
 
