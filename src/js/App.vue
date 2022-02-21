@@ -23,29 +23,34 @@ export default {
     Card
   },
   methods: {
+    // Set the values array to a randomized array based on numbers from api.
     async setValues() {
       const numbers = await getNumbers();
       this.values = generateValues(numbers);
     },
+    // Invoked by clicking a card
     handleFlip(cardValues) {
+      // Only do stuff if the card isn't already active or already correct. 
+      // Checking activeCards.length stops users from selecting more than 2 cards at once
       if (!this.correctCards.includes(cardValues.index) &&
           !this.activeCards.includes(cardValues.index) &&
           this.activeCards.length < 2) {
-          this.activeCards.push(cardValues.index);
+          this.activeCards.push(cardValues.index); // push index of clicked card to active cards
         if (this.activeCards.length === 2) {
-          this.attempts++;
-          setTimeout(this.checkValues, 1000);
+          this.attempts++; // if second card is clicked that means 1 attempt has been made
+          setTimeout(this.checkValues, 1000); // Check if numbers match. Also add a delay so user can see both cards.
         }
       }
     },
+    // This checks if the two numbers of the cards match
     checkValues() {
       if (this.values[this.activeCards[0]] == this.values[this.activeCards[1]]) {
-        this.correctCards.push(this.activeCards[0], this.activeCards[1]);
-        this.activeCards = [];
-        this.checkWin();
+        this.correctCards.push(this.activeCards[0], this.activeCards[1]); // Pass index of correct cards to correctCards
+        this.checkWin(); 
       }
-      this.activeCards = [];
+      this.activeCards = []; // Reset active cards
     },
+    // This function generates relevant classes to cards
     getClasses(index) {
       let classes = ['card'];
       if (this.activeCards.includes(index)) {
@@ -56,12 +61,15 @@ export default {
       }
       return classes.join(' ');
     },
+    // Checks to see if the game has been won yet
     checkWin() {
       if (this.values.length == this.correctCards.length) {
         const bestAttempt = localStorage.getItem('bestAttempt') ?? 0;
+        // Set a best attempt if one has not been made
         if (bestAttempt === 0) {
           localStorage.setItem('bestAttempt', this.attempts);
         }
+        // Updates best attempt if current attempt is better 
         if (bestAttempt > this.attempts) {
           localStorage.setItem('bestAttempt', this.attempts);
         }
@@ -69,6 +77,7 @@ export default {
         this.win = true;
       }
     },
+    // Reset all values on try again. 
     reset() {
       this.setValues();
       this.attempts = 0;
@@ -78,6 +87,7 @@ export default {
     }
   },
   beforeMount() {
+    // Set some basic values before mount. 
     this.setValues();
     this.best = localStorage.getItem('bestAttempt');
   },
