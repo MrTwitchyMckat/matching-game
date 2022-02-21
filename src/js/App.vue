@@ -52,7 +52,7 @@ export default {
         this.activeCards = [];
         this.currentValue = {};
         this.previousValue = {};
-        this.checkWin()
+        this.checkWin();
       } else {
         this.activeCards = [];
         this.currentValue = {};
@@ -70,7 +70,6 @@ export default {
     },
     checkWin() {
       if (this.values.length == this.correctCards.length) {
-        this.win = true;
         const bestAttempt = localStorage.getItem('bestAttempt');
         if (bestAttempt != null && bestAttempt > this.attempts) {
           localStorage.setItem('bestAttempt', this.attempts);
@@ -78,6 +77,8 @@ export default {
         if (bestAttempt == null) {
           localStorage.setItem('bestAttempt', this.attempts);
         }
+        this.best = localStorage.getItem('bestAttempt');
+        this.win = true;
       }
     },
     reset() {
@@ -93,8 +94,10 @@ export default {
   },
   beforeMount() {
     this.setValues();
-    this.best = localStorage.getItem('bestAttempt');
   },
+  mounted() {
+    this.best = localStorage.getItem('bestAttempt');
+  }
 }
 </script>
 
@@ -120,7 +123,7 @@ export default {
         <h1>You Matched em' All!</h1>
       </div>
       <div class="win__gif">
-        <iframe src="https://giphy.com/embed/1GTZA4flUzQI0" width="480" height="295" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+        <iframe src="https://giphy.com/embed/1GTZA4flUzQI0" width="100%" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
       </div>
       <div class="win__attempts">
         <div class="win__current">
