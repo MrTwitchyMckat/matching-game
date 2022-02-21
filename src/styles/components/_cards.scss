@@ -1,0 +1,39 @@
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  margin: rem(-3);
+}
+
+.card {
+  display: flex;
+  flex: 0 0 calc((100%/3) - 6px);
+  justify-content: center;
+  align-items: center;
+  margin: rem(3);
+  background-color: #666666;
+  transition: background-color .1s ease;
+  &:hover {
+    cursor: pointer;
+  }
+  &::before {
+    content: '';
+    display: block;
+    padding-bottom: 100%;
+  }
+  .card__number {
+    font-size: rem(48);
+    font-weight: bold;
+    color: #222222;
+    opacity: 0;
+    transition: opacity .1s ease;
+  }
+  &.active, &.correct {
+    background-color: #ffffff;
+    .card__number {
+      opacity: 1;
+    }
+  }
+  &.correct {
+    background-color: greenyellow;
+  }
+}

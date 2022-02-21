@@ -1,0 +1,12 @@
+.attempts {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid #dddddd;
+  margin-bottom: rem(40);
+}
+
+.attempts__headline, .attempts__best {
+  font-size: rem(33);
+  font-weight: bold;
+  line-height: 1.2;
+}

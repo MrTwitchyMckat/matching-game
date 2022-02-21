@@ -1,0 +1,28 @@
+.win {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.win__message {
+  text-align: center;
+}
+
+.win__attempts {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.win__current, .win__best {
+  padding: 0 20px;
+}
+
+.try-again {
+  .button {
+    color: #ffffff;
+    background-color: #222222;
+    border: none;
+    padding: 12px 20px;
+  }
+}
